@@ -2,9 +2,14 @@
 
 {% block content %}
 {% for post in post_list %}
-    <div class="post-entry">
-        <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
+    <div class="border rounded p-3 mb-3">
+        <h2 class="display-6">{{ post.title }}</h2>
         <p>{{ post.body }}</p>
+        {% if user.is_authenticated %}
+            <p>by {{ post.author }}</p>
+        {% else %}
+            <p>by Anonymous</p>
+        {% endif %}
     </div>
 {% endfor %}
 {% endblock content %}

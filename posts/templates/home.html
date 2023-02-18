@@ -5,10 +5,10 @@
     <div class="border rounded p-3 mb-3">
         <h2 class="display-6">{{ post.title }}</h2>
         <p>{{ post.body }}</p>
-        {% if user.is_authenticated %}
-            <p>by {{ post.author }}</p>
+        {% if user.member %}
+            <p>posted by {{ post.author }} on {{ post.creation_date }}</p>
         {% else %}
-            <p>by Anonymous</p>
+            <p>posted by anonymous</p>
         {% endif %}
     </div>
 {% endfor %}
